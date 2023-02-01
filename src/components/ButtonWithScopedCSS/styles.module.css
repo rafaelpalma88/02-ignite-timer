@@ -1,0 +1,16 @@
+.button {
+    width: 200px;
+    height: 200px;
+}
+
+.regular {
+    background-color: green;
+}
+
+.warning {
+    background-color: red;
+}
+
+.danger {
+    background-color: yellow;
+}
