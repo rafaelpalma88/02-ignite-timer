@@ -1,11 +1,16 @@
-import './App.css'
 import { ButtonWithScopedCSS } from './components/ButtonWithScopedCSS/Button'
 import { ButtonWithStyledComponents } from './components/ButtonWithStyledComponents'
+import { ThemeProvider } from 'styled-components'
+
+import { GlobalStyle } from './styles/global'
+import { defaultTheme } from './styles/themes/default'
+
 
 export function App() {
 
   return (
-    <div>
+    <ThemeProvider theme={defaultTheme}>
+       
       <p>Scoped CSS</p>
       <div>
         <ButtonWithScopedCSS color="danger" />
@@ -23,9 +28,8 @@ export function App() {
         <ButtonWithStyledComponents />
       </div>
 
-    </div>
-    
-    
+      <GlobalStyle />
+    </ThemeProvider>
   )
 }
 

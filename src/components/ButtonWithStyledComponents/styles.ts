@@ -13,11 +13,13 @@ const buttonVariants = {
 }
 
 export const Button = styled.button<ButtonProps>`
-    width: 200;
-    height: 200%;
+    width: 200px;
+    height: 200px;
 
     ${props => {
         // console.log('props xxx', props);
         return css`background-color: ${buttonVariants[props.variant]}`
-    }}
+    }};
+
+    color: ${props => props.theme['gray-500']}; // utilizando o tema 
 `
