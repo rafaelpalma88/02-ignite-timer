@@ -3,13 +3,13 @@ import styled, { css } from 'styled-components'
 export type ButtonVariant = 'regular' | 'warning' | 'danger'
 
 interface ButtonProps {
-    variant: ButtonVariant;
+  variant: ButtonVariant
 }
 
 const buttonVariants = {
-    regular : 'green',
-    warning: 'red',
-    danger: 'yellow'
+  regular: 'green',
+  warning: 'red',
+  danger: 'yellow'
 }
 
 export const Button = styled.button<ButtonProps>`

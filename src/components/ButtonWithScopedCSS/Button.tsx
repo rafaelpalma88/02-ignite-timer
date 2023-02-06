@@ -1,9 +1,9 @@
-import styles from './styles.module.css';
+import styles from './styles.module.css'
 
 interface IProps {
-    color?: 'regular' | 'danger' | 'warning';
+  color?: 'regular' | 'danger' | 'warning'
 }
 
-export function ButtonWithScopedCSS({ color = 'regular' }: IProps) {
-    return <button className={styles[color]}>Enviar</button>
+export const ButtonWithScopedCSS: React.FC = ({ color = 'regular' }: IProps) => {
+  return <button className={styles[color]}>Enviar</button>
 }
