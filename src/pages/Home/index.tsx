@@ -55,7 +55,7 @@ export const Home: React.FC = () => {
     setAmountSecondsPassed(seconds)
   }
 
-  function markCurrentCycleAsFinished (): Cycle {
+  function markCurrentCycleAsFinished (): void {
     setCycles(state => state.map(cycle => {
       if (cycle.id === activeCycleId) {
         return { ...cycle, finishedDate: new Date() }
@@ -91,6 +91,9 @@ export const Home: React.FC = () => {
     setActiveCycleId(null)
   }
 
+  const task = watch('task')
+  const isSubmitDisabled = !task
+
   return (
     <HomeContainer>
 
@@ -104,12 +107,14 @@ export const Home: React.FC = () => {
             markCurrentCycleAsFinished,
             setSecondsPassed
           }}
-        ></CyclesContext.Provider>
+        >
 
-        <FormProvider {...newCycleForm}>
-          <NewCycleForm />
-        </FormProvider>
-        <Countdown />
+          <FormProvider {...newCycleForm}>
+            <NewCycleForm />
+            <Countdown />
+          </FormProvider>
+
+        </CyclesContext.Provider>
 
         {(activeCycle != null)
           ? (
@@ -118,7 +123,7 @@ export const Home: React.FC = () => {
             </StopCountdownButton>
             )
           : (
-          <StartCountdownButton type="submit" /* disabled={isSubmitDisabled} */>
+          <StartCountdownButton type="submit" disabled={isSubmitDisabled}>
             <Play size={24} /> Começar
           </StartCountdownButton>
             )}

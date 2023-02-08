@@ -23,15 +23,18 @@ export const Countdown: React.FC = () => {
 
   useEffect(() => {
     let interval: number
+    console.log('activeCycle dentro de useEffectxxx -> ', activeCycle)
     if (activeCycle != null) {
       interval = setInterval(() => {
         const secondsDifference = differenceInSeconds(new Date(), activeCycle.startDate)
 
         if (secondsDifference >= totalSeconds) {
+          console.log('2 xxx -> ', secondsDifference)
           markCurrentCycleAsFinished()
           setSecondsPassed(totalSeconds)
           clearInterval(interval)
         } else {
+          console.log('3 xxx -> ', secondsDifference)
           setSecondsPassed(secondsDifference)
         }
       }, 1000)
